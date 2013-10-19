@@ -48,6 +48,11 @@ please add "#!/your/Julia/executable/path" to top of Julia/Main.jl.
 (Before registrate Shogi Engine, comment out Main.jl's "please commented out in registration"
 require command lines, and registrate. After registrattion, uncomment out these lines.)
 
+A necessary file "fv.bin" in top directory is not in our repogitory 
+(Because of different distribution LICENSE).
+
+Please download recent "Bonanza" Shogi program and copy "fv.bin" into this directory.
+
 I'll describe how to play Shogi Dokoro UI Interface in later...
 
 License
