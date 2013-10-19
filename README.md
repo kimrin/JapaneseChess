@@ -42,8 +42,11 @@ How to Play
 --------------------------------------------------
 
 run the Shogi Dokoro UI Interface and regstrate Julia/Main.jl as Shogi Engine.
+please add "#!/your/Julia/executable/path" to top of Julia/Main.jl.
+
+
 (Before registrate Shogi Engine, comment out Main.jl's "please commented out in registration"
-require command lines, and registrate, and then uncomment out these lines.)
+require command lines, and registrate. After registrattion, uncomment out these lines.)
 
 I'll describe how to play Shogi Dokoro UI Interface in later...
 
