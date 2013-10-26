@@ -1,5 +1,5 @@
 # very large values
-const Infinity = 32000
+const Infinity = 100000
 
 const OUDANSENTE =  [1200,1200,900,600, 300, -10,   0,    0,    0]::Array{Int,1}
 const OUDANGOTE   = [   0,   0,  0, 10,-300,-600,-900,-1200,-1200]::Array{Int,1}

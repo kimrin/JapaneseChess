@@ -1,6 +1,10 @@
 ## info command format:
 ## info time 203 nodes 11111111 score cp 11168 pv 5e9i+ ....
 
+const PV = 1
+const NonPV = 2
+const Root = 3
+
 function rememberPV(gs::GameStatus)
     # remember the last PV, and also the 5 previous ones because 
     # they usually contain good moves to try
@@ -127,11 +131,14 @@ function thinkASP( sengo::Int, gs::GameStatus)
     gs.side = sengo
     gs.board.nextMove = sengo
     gs.tt = Dict{Uint64,TransP}()
-    delta::Int = 50
+    delta::Int = 48
     score::Int = 0
     middle::Int = 0
     smallAlpha::Int = 0
     smallBeta::Int  = 0
+
+    ev_sign = gs.side == SENTE? 1: -1
+
     for IDdepth = 1.0:1.0:60.0 #MaxPly
         hitScore::Bool = false
 
@@ -146,14 +153,14 @@ function thinkASP( sengo::Int, gs::GameStatus)
 
             # score::Int = AlphaBeta(gs, 0, IDdepth,-Infinity,Infinity) # ply=0
             if IDdepth == 1.0
-                score = PVS(gs, 0, IDdepth,-Infinity,Infinity) # ply=0
+                score = ev_sign * SimplePVS(gs, 0, IDdepth,-Infinity,Infinity,Root,false) # ply=0
                 middle = score
                 hitScore = true
                 smallAlpha = middle - delta
                 smallBeta  = middle + delta
                 bestMove = gs.lastPV[1]
             else
-                score = PVS(gs, 0, IDdepth,smallAlpha,smallBeta) # ply=0
+                score = ev_sign * SimplePVS(gs, 0, IDdepth,smallAlpha,smallBeta,Root,false) # ply=0
                 middle = score
 
                 if smallAlpha == -Infinity

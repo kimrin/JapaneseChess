@@ -357,14 +357,12 @@ function EvalBonanza(nextMove::Int, p::Board, gs::GameStatus)
     score += sum
     score += 32 * Eval( SENTE, p, gs)
 
-    if nextMove == GOTE
-        score = -score
-    end
-
     score = int(score/32)
 
     noise = (rand(Uint32) % 6) - 3
     score += noise
+
+    score = (nextMove == SENTE) ? score: -score
 
     return score
 end

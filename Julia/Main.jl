@@ -16,7 +16,7 @@
 #
 
 const MECHA_JYOSHI_SHOGI = 1
-const MECHAJYO_VERSION = "0.5"
+const MECHAJYO_VERSION = "0.6"
 
 srand(1234)
 
@@ -35,6 +35,7 @@ require("EvalBonanza.jl") #comment out when registration
 require("GenMove.jl")     #comment out when registration
 require("Search.jl")      #comment out when registration
 require("PVS.jl")         #comment out when registration
+require("SimpleSearch.jl")#comment out when registration
 
 # おまじない
 function setupIO()
@@ -249,7 +250,7 @@ function main()
                 else
                     makeMove(gs.board,Index,out,side)
                     if in_check( side, gs.board)
-                        println("check!")
+                        #println("check!")
                     end
                     println("bestmove ",move2USIString(out[Index]))
                     #@iprofile report

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 const MaxPly   = 80      # とりあえず大きめに取る。実際はこの半分もいかない。。。
-const MaxMoves = 2000000 # 少ないかも。。。でもこんなに読まない。。。
+const MaxMoves = 8000000 # 少ないかも。。。でもこんなに読まない。。。
 
 const SENTE = 0 # ▲先手
 const GOTE  = 1 # △後手
