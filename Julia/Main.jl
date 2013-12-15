@@ -1,4 +1,4 @@
-#!/home/kimura/Julia130928/julia/julia
+#!/home/kimura/julia/julia
 # 
 # メカ女子将棋システム (C) 2013 メカ女子将棋部☆
 # 
